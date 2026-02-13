@@ -1,0 +1,226 @@
+/* Global Styles */
+.root {
+    -fx-font-family: 'Segoe UI', 'Roboto', sans-serif;
+    -fx-background-color: #f4f6f8;
+}
+
+/* Containers */
+.content-container {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+}
+
+.welcome-container {
+    -fx-background-image: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+}
+
+/* Typography */
+.app-title {
+    -fx-text-fill: #00695c;
+    -fx-font-weight: bold;
+}
+
+.page-title {
+    -fx-text-fill: #2e7d32;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-text-fill: #546e7a;
+}
+
+.section-header {
+    -fx-text-fill: #37474f;
+    -fx-padding: 5 0 5 0;
+}
+
+.info-text {
+    -fx-text-fill: #78909c;
+}
+
+.success-title {
+    -fx-text-fill: #2e7d32;
+}
+
+/* Buttons */
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15 8 15;
+    -fx-font-weight: bold;
+}
+
+.primary-button {
+    -fx-background-color: #009688;
+    -fx-text-fill: white;
+}
+
+.primary-button:hover {
+    -fx-background-color: #00796b;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+
+.secondary-button {
+    -fx-background-color: #cfd8dc;
+    -fx-text-fill: #37474f;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #b0bec5;
+}
+
+/* Text Fields */
+.text-field {
+    -fx-background-radius: 5;
+    -fx-border-color: #b0bec5;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+    -fx-background-color: white;
+}
+
+.text-field:focused {
+    -fx-border-color: #009688;
+    -fx-border-width: 2;
+}
+
+/* Lists and Tables */
+.list-view,
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #eceff1;
+    -fx-border-width: 1;
+}
+
+.list-view .list-cell {
+    -fx-padding: 10;
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #eceff1 transparent;
+}
+
+.list-view .list-cell:filled:selected,
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #e0f2f1;
+    -fx-text-fill: #004d40;
+}
+
+.table-view .column-header {
+    -fx-background-color: #eceff1;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:filled {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f5f5f5 transparent;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #e0f2f1;
+}
+
+/* Box Styles */
+.section-box {
+    -fx-background-color: #fafafa;
+    -fx-border-color: #eeeeee;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.result-box {
+    -fx-background-color: #e8f5e9;
+    -fx-border-color: #c8e6c9;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.total-box {
+    -fx-background-color: #fff3e0;
+    -fx-border-color: #ffe0b2;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.order-info-box {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+/* Labels */
+.cart-badge {
+    -fx-background-color: #ff5722;
+    -fx-text-fill: white;
+    -fx-padding: 5 10 5 10;
+    -fx-background-radius: 15;
+}
+
+.total-label {
+    -fx-text-fill: #e65100;
+}
+
+.order-id {
+    -fx-text-fill: #1976d2;
+}
+
+/* Order Tracking Styles */
+.tracking-container {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.06), 10, 0, 0, 5);
+}
+
+.countdown-timer {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a73e8;
+    -fx-font-family: 'Consolas', monospace;
+}
+
+.tracking-step-dot {
+    -fx-background-radius: 50%;
+    -fx-min-width: 14px;
+    -fx-min-height: 14px;
+    -fx-max-width: 14px;
+    -fx-max-height: 14px;
+}
+
+.step-inactive {
+    -fx-background-color: #dfe6e9;
+    -fx-border-color: #b2bec3;
+    -fx-border-width: 1;
+    -fx-border-radius: 50%;
+}
+
+.step-active {
+    -fx-background-color: #00b894;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 184, 148, 0.4), 8, 0, 0, 0);
+}
+
+.tracking-line {
+    -fx-min-height: 4px;
+    -fx-max-height: 4px;
+    -fx-background-radius: 2;
+}
+
+.line-inactive {
+    -fx-background-color: #dfe6e9;
+}
+
+.line-active {
+    -fx-background-color: #00b894;
+}
+
+.step-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.label-inactive {
+    -fx-text-fill: #b2bec3;
+}
+
+.label-active {
+    -fx-text-fill: #2d3436;
+}

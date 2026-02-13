@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="35.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.bhojhon.controller.MainMenuController"
+      style="-fx-background-color: #f5f5f5; -fx-padding: 40;">
+
+    <!-- Title -->
+    <Label text="Select Your Role" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial';"/>
+
+    <!-- Buttons -->
+    <VBox spacing="20.0" alignment="CENTER">
+        <Button text="Passenger (User)" onAction="#handleUserClick"
+                prefWidth="250" prefHeight="50"
+                style="-fx-background-color: #1a73e8; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(26,115,232,0.3), 5, 0, 0, 2);"/>
+
+        <Button text="Restaurant Owner" onAction="#handleRestaurantClick"
+                prefWidth="250" prefHeight="50"
+                style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-cursor: hand;"/>
+
+        <Button text="Admin" onAction="#handleAdminClick"
+                prefWidth="250" prefHeight="50"
+                style="-fx-background-color: #ffffff; -fx-border-color: #bdc3c7; -fx-border-radius: 8; -fx-background-radius: 8; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-cursor: hand;"/>
+    </VBox>
+
+</VBox>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="25.0" alignment="CENTER" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.bhojhon.controller.OrderConfirmationController"
+      style="-fx-background-color: #f5f5f5; -fx-padding: 30;">
+
+    <!-- Success Message -->
+    <Label text="✓ Order Confirmed!" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #27ae60; -fx-font-family: 'Arial';"/>
+
+    <!-- Order ID -->
+    <Label fx:id="orderIdLabel" text="Order #12345" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Order Info Box -->
+    <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 4);">
+        <Label fx:id="trainInfoLabel" text="Train: 101" style="-fx-font-size: 14px; -fx-text-fill: #34495e;"/>
+        <Label fx:id="stationInfoLabel" text="Delivery Station: Dhaka" style="-fx-font-size: 14px; -fx-text-fill: #34495e;"/>
+        <Label fx:id="passengerInfoLabel" text="Passenger: John Doe (Seat: G-42)" style="-fx-font-size: 14px; -fx-text-fill: #34495e;"/>
+        <Label fx:id="deliveryNoteLabel" text="Note: Near the door" style="-fx-text-fill: #7f8c8d; -fx-font-style: italic; -fx-font-size: 13px;"/>
+
+        <VBox spacing="5.0">
+            <Label text="Order Details:" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <TextArea fx:id="orderDetailsArea" editable="false" wrapText="true" prefHeight="200.0"
+                      style="-fx-background-color: #ecf0f1; -fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 10; -fx-font-size: 14px;"/>
+        </VBox>
+
+        <Label fx:id="totalLabel" text="Total: ৳500" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1a73e8;"/>
+    </VBox>
+
+    <!-- Track Order Section -->
+    <VBox spacing="20.0" alignment="CENTER" styleClass="tracking-container" maxWidth="600">
+        <VBox spacing="5.0" alignment="CENTER">
+            <Label text="ESTIMATED DELIVERY" style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #95a5a6;"/>
+            <Label fx:id="timerLabel" text="30:00" styleClass="countdown-timer"/>
+        </VBox>
+
+        <!-- Progress Tracker -->
+        <HBox spacing="0.0" alignment="CENTER">
+            <VBox spacing="8.0" alignment="CENTER">
+                <Region fx:id="step1Dot" styleClass="tracking-step-dot, step-active"/>
+                <Label fx:id="label1" text="Confirmed" styleClass="step-label, label-active"/>
+            </VBox>
+            
+            <Region fx:id="line1" styleClass="tracking-line, line-inactive" HBox.hgrow="ALWAYS" minWidth="60"/>
+            
+            <VBox spacing="8.0" alignment="CENTER">
+                <Region fx:id="step2Dot" styleClass="tracking-step-dot, step-inactive"/>
+                <Label fx:id="label2" text="Preparing" styleClass="step-label, label-inactive"/>
+            </VBox>
+            
+            <Region fx:id="line2" styleClass="tracking-line, line-inactive" HBox.hgrow="ALWAYS" minWidth="60"/>
+            
+            <VBox spacing="8.0" alignment="CENTER">
+                <Region fx:id="step3Dot" styleClass="tracking-step-dot, step-inactive"/>
+                <Label fx:id="label3" text="On the way" styleClass="step-label, label-inactive"/>
+            </VBox>
+            
+            <Region fx:id="line3" styleClass="tracking-line, line-inactive" HBox.hgrow="ALWAYS" minWidth="60"/>
+            
+            <VBox spacing="8.0" alignment="CENTER">
+                <Region fx:id="step4Dot" styleClass="tracking-step-dot, step-inactive"/>
+                <Label fx:id="label4" text="Arrived" styleClass="step-label, label-inactive"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- Spacer -->
+    <VBox prefHeight="10.0"/>
+
+    <!-- Action Buttons -->
+    <HBox spacing="20.0" alignment="CENTER">
+        <Button text="Download PDF" onAction="#handlePrintBill"
+                prefWidth="180" prefHeight="45"
+                style="-fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-cursor: hand;"/>
+
+        <Button text="Return to Home" onAction="#handleReturnHome"
+                prefWidth="180" prefHeight="45"
+                style="-fx-background-color: #1a73e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-font-size: 16px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(26,115,232,0.3), 6, 0, 0, 3);"/>
+    </HBox>
+
+</VBox>

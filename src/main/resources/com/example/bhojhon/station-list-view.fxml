@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.bhojhon.controller.StationListController"
+           alignment="CENTER">
+
+    <!-- Background Image -->
+    <ImageView preserveRatio="false">
+        <image>
+            <Image url="https://i.pinimg.com/1200x/36/17/81/361781f10c9a7749ceea0caf8e73a8bf.jpg"/>
+        </image>
+        <fitWidth>1920</fitWidth>
+        <fitHeight>1080</fitHeight>
+    </ImageView>
+
+    <!-- Dark Overlay -->
+    <Pane style="
+        -fx-background-color: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.65)
+        );
+    "/>
+
+    <!-- Main Content Card -->
+    <VBox spacing="24"
+          prefWidth="820"
+          minWidth="720"
+          maxWidth="900"
+          prefHeight="600"
+          maxHeight="720"
+          style="
+            -fx-background-color: rgba(255,255,255,0.9);
+            -fx-background-radius: 24;
+            -fx-padding: 32;
+            -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 20, 0, 0, 10);
+          ">
+
+        <!-- Header -->
+        <VBox spacing="6">
+            <Label text="Select Station"
+                   style="-fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #111827;"/>
+            <Label fx:id="trainInfoLabel"
+                   style="-fx-font-size: 15; -fx-text-fill: #4B5563;"/>
+        </VBox>
+
+        <!-- Station List -->
+        <VBox spacing="12" VBox.vgrow="ALWAYS">
+            <Label text="Available Stations"
+                   style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #1F2937;"/>
+
+            <ListView fx:id="stationListView"
+                      VBox.vgrow="ALWAYS"
+                      style="
+                        -fx-background-color: rgba(249,250,251,0.96);
+                        -fx-background-radius: 14;
+                        -fx-padding: 6;
+                        -fx-border-color: #E5E7EB;
+                        -fx-border-radius: 14;
+                      "/>
+        </VBox>
+
+        <!-- Action Buttons -->
+        <HBox spacing="16" alignment="CENTER_RIGHT">
+
+            <Button text="Back"
+                    onAction="#handleBack"
+                    prefWidth="120"
+                    style="
+                      -fx-background-color: #E5E7EB;
+                      -fx-text-fill: #1F2937;
+                      -fx-font-weight: bold;
+                      -fx-background-radius: 12;
+                      -fx-font-size: 14;
+                    "/>
+
+            <Button text="Select Station"
+                    onAction="#handleSelectStation"
+                    prefWidth="170"
+                    style="
+                      -fx-background-color: linear-gradient(to right, #2563EB, #3B82F6);
+                      -fx-text-fill: white;
+                      -fx-font-weight: bold;
+                      -fx-background-radius: 12;
+                      -fx-font-size: 14;
+                      -fx-effect: dropshadow(three-pass-box, rgba(59,130,246,0.6), 10, 0, 0, 4);
+                    "/>
+
+        </HBox>
+
+    </VBox>
+</StackPane>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.bhojhon.controller.RestaurantListController"
+           alignment="CENTER">
+
+    <!-- Background Network Image -->
+    <ImageView preserveRatio="false">
+        <image>
+            <Image url="https://i.pinimg.com/1200x/34/eb/75/34eb75d5d66fc39656f322ac93bc2206.jpg"/>
+        </image>
+        <fitWidth>1920</fitWidth>
+        <fitHeight>1080</fitHeight>
+    </ImageView>
+
+    <!-- Dark Overlay -->
+    <Pane style="
+        -fx-background-color: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.65)
+        );
+    "/>
+
+    <!-- Main Content Card -->
+    <VBox spacing="30"
+          prefWidth="820"
+          minWidth="720"
+          maxWidth="900"
+          prefHeight="620"
+          maxHeight="750"
+          style="
+            -fx-background-color: rgba(255,255,255,0.94);
+            -fx-background-radius: 24;
+            -fx-padding: 38;
+            -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 18, 0, 0, 8);
+          ">
+
+        <!-- Header -->
+        <VBox spacing="10">
+            <Label text="Select Restaurant"
+                   style="
+                     -fx-font-size: 34;
+                     -fx-font-weight: 800;
+                     -fx-text-fill: #0F172A;
+                   "/>
+
+            <Label fx:id="stationInfoLabel"
+                   style="
+                     -fx-font-size: 18;
+                     -fx-font-weight: 600;
+                     -fx-text-fill: #374151;
+                   "/>
+        </VBox>
+
+        <!-- Restaurant List -->
+        <VBox spacing="14" VBox.vgrow="ALWAYS">
+            <Label text="Available Restaurants"
+                   style="
+                     -fx-font-size: 18;
+                     -fx-font-weight: 700;
+                     -fx-text-fill: #0F172A;
+                   "/>
+
+            <ListView fx:id="restaurantListView"
+                      VBox.vgrow="ALWAYS"
+                      style="
+                        -fx-background-color: rgba(249,250,251,0.98);
+                        -fx-background-radius: 16;
+                        -fx-padding: 10;
+                        -fx-border-color: #E5E7EB;
+                        -fx-border-radius: 16;
+                      "/>
+        </VBox>
+
+        <!-- Action Buttons -->
+        <HBox spacing="22" alignment="CENTER_RIGHT">
+
+            <Button text="Back"
+                    onAction="#handleBack"
+                    prefWidth="140"
+                    style="
+                      -fx-background-color: #E5E7EB;
+                      -fx-text-fill: #111827;
+                      -fx-font-weight: 700;
+                      -fx-background-radius: 14;
+                      -fx-font-size: 16;
+                    "/>
+
+            <Button text="View Menu"
+                    onAction="#handleSelectRestaurant"
+                    prefWidth="190"
+                    style="
+                      -fx-background-color: linear-gradient(to right, #2563EB, #3B82F6);
+                      -fx-text-fill: white;
+                      -fx-font-weight: 800;
+                      -fx-background-radius: 14;
+                      -fx-font-size: 16;
+                      -fx-effect: dropshadow(three-pass-box, rgba(59,130,246,0.6), 10, 0, 0, 4);
+                    "/>
+
+        </HBox>
+
+    </VBox>
+</StackPane>

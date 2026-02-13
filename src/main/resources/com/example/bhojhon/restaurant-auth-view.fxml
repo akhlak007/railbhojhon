@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="25.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.bhojhon.controller.RestaurantAuthController"
+      style="-fx-background-color: #f5f5f5; -fx-padding: 40;">
+
+    <!-- Title -->
+    <Label text="Restaurant Owner" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Tab Pane -->
+    <TabPane fx:id="tabPane" prefWidth="500" prefHeight="550" tabClosingPolicy="UNAVAILABLE"
+             style="-fx-background-color: transparent; -fx-tab-min-width: 100; -fx-tab-max-width: 150;">
+
+        <!-- Login Tab -->
+        <Tab text="Login">
+            <VBox alignment="CENTER" spacing="20.0" style="-fx-padding: 30;">
+                <Label text="Welcome Back!" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                <VBox spacing="10.0">
+                    <Label text="Email" style="-fx-font-weight: bold;"/>
+                    <TextField fx:id="loginEmailField" promptText="Enter your email" prefWidth="350"
+                               style="-fx-font-size: 14px; -fx-background-radius: 6; -fx-border-radius: 6; -fx-padding: 8;"/>
+                </VBox>
+
+                <VBox spacing="10.0">
+                    <Label text="Password" style="-fx-font-weight: bold;"/>
+                    <PasswordField fx:id="loginPasswordField" promptText="Enter your password" prefWidth="350"
+                                   style="-fx-font-size: 14px; -fx-background-radius: 6; -fx-border-radius: 6; -fx-padding: 8;"/>
+                </VBox>
+
+                <Button text="Login" onAction="#handleLogin" prefWidth="350" prefHeight="45"
+                        style="-fx-background-color: #1a73e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-font-size: 16px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(26,115,232,0.3), 5,0,0,2);"/>
+
+                <Label fx:id="loginErrorLabel" textFill="red" wrapText="true" maxWidth="350" style="-fx-font-size: 12px;"/>
+            </VBox>
+        </Tab>
+
+        <!-- Register Tab -->
+        <Tab text="Register">
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                <VBox alignment="CENTER" spacing="15.0" style="-fx-padding: 30;">
+                    <Label text="Create Account" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+                    <VBox spacing="10.0">
+                        <Label text="Restaurant Name" style="-fx-font-weight: bold;"/>
+                        <TextField fx:id="registerRestaurantNameField" promptText="Enter restaurant name" prefWidth="350"
+                                   style="-fx-font-size: 14px; -fx-background-radius: 6; -fx-border-radius: 6; -fx-padding: 8;"/>
+                    </VBox>
+
+                    <VBox spacing="10.0">
+                        <Label text="Email" style="-fx-font-weight: bold;"/>
+                        <TextField fx:id="registerEmailField" promptText="Enter your email" prefWidth="350"
+                                   style="-fx-font-size: 14px; -fx-background-radius: 6; -fx-border-radius: 6; -fx-padding: 8;"/>
+                    </VBox>
+
+                    <VBox spacing="10.0">
+                        <Label text="Password" style="-fx-font-weight: bold;"/>
+                        <PasswordField fx:id="registerPasswordField" promptText="Create a password" prefWidth="350"
+                                       style="-fx-font-size: 14px; -fx-background-radius: 6; -fx-border-radius: 6; -fx-padding: 8;"/>
+                    </VBox>
+
+                    <VBox spacing="10.0">
+                        <Label text="Confirm Password" style="-fx-font-weight: bold;"/>
+                        <PasswordField fx:id="registerConfirmPasswordField" promptText="Confirm your password" prefWidth="350"
+                                       style="-fx-font-size: 14px; -fx-background-radius: 6; -fx-border-radius: 6; -fx-padding: 8;"/>
+                    </VBox>
+
+                    <VBox spacing="10.0">
+                        <Label text="Select Station" style="-fx-font-weight: bold;"/>
+                        <ComboBox fx:id="stationComboBox" promptText="Choose your station" prefWidth="350"
+                                  style="-fx-font-size: 14px; -fx-background-radius: 6; -fx-border-radius: 6;"/>
+                    </VBox>
+
+                    <Button text="Register" onAction="#handleRegister" prefWidth="350" prefHeight="45"
+                            style="-fx-background-color: #1a73e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-font-size: 16px; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(26,115,232,0.3), 5,0,0,2);"/>
+
+                    <Label fx:id="registerErrorLabel" textFill="red" wrapText="true" maxWidth="350" style="-fx-font-size: 12px;"/>
+                </VBox>
+            </ScrollPane>
+        </Tab>
+    </TabPane>
+
+    <!-- Back Button -->
+    <Button text="← Back to Main Menu" onAction="#handleBack" prefWidth="200" prefHeight="40"
+            style="-fx-background-color: white; -fx-border-color: #bdc3c7; -fx-border-radius: 6; -fx-background-radius: 6; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-cursor: hand;"/>
+</VBox>
