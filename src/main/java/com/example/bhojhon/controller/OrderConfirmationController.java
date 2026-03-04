@@ -119,6 +119,11 @@ public class OrderConfirmationController extends BaseController {
         orderDetailsArea.setText(details.toString());
         orderDetailsArea.setEditable(false);
 
+        // Send confirmation email in a background thread to avoid blocking UI
+        String userEmail = cartManager.getUserEmail();
+        String currentOrderId = orderId;
+        String currentOrderDetails = details.toString();
+
         // Save complete order to database
         saveOrderToDatabase(orderId, order, details.toString());
 
@@ -127,6 +132,15 @@ public class OrderConfirmationController extends BaseController {
 
         // Start order tracking
         startTracking();
+
+        new Thread(() -> {
+            try {
+                com.example.bhojhon.service.EmailService emailService = new com.example.bhojhon.service.EmailService();
+                emailService.sendOrderConfirmation(userEmail, currentOrderId, currentOrderDetails);
+            } catch (Exception e) {
+                System.err.println("Background email sending error: " + e.getMessage());
+            }
+        }).start();
     }
 
     private void startTracking() {

@@ -120,8 +120,10 @@ public class RestaurantDashboardController extends BaseController {
             {
                 deleteBtn.setStyle("-fx-background-color: #ffcdd2; -fx-text-fill: #b71c1c; -fx-font-size: 11px;");
                 deleteBtn.setOnAction(event -> {
-                    FoodItem item = getTableView().getItems().get(getIndex());
-                    handleDeleteItem(item);
+                    FoodItem item = getTableRow().getItem();
+                    if (item != null) {
+                        handleDeleteItem(item);
+                    }
                 });
             }
 

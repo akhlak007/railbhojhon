@@ -2,9 +2,11 @@ package com.example.bhojhon.controller;
 
 import com.example.bhojhon.util.BaseController;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 public class UserFormController extends BaseController {
@@ -24,7 +26,9 @@ public class UserFormController extends BaseController {
     @FXML
     private TextField trainNumberField;
     @FXML
-    private TextField journeyDateField;
+    private TextField journeyDateField; // kept for FXML compatibility
+    @FXML
+    private DatePicker journeyDatePicker;
     @FXML
     private Label errorLabel;
 
@@ -42,7 +46,14 @@ public class UserFormController extends BaseController {
         String note = deliveryNoteField.getText().trim();
         String pnr = pnrField.getText().trim();
         String trainNum = trainNumberField.getText().trim();
-        String date = journeyDateField.getText().trim();
+
+        // Read date from DatePicker; fall back to text field if needed
+        String date = "";
+        if (journeyDatePicker != null && journeyDatePicker.getValue() != null) {
+            date = journeyDatePicker.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        } else if (journeyDateField != null) {
+            date = journeyDateField.getText().trim();
+        }
 
         if (!validateInput(name, phone, email, seat, pnr, trainNum, date)) {
             return;
@@ -55,7 +66,7 @@ public class UserFormController extends BaseController {
 
         // Save to CartManager for session
         com.example.bhojhon.data.CartManager cart = com.example.bhojhon.data.CartManager.getInstance();
-        cart.setPassengerDetails(name, phone, seat, note, pnr, date);
+        cart.setPassengerDetails(name, phone, seat, note, pnr, date, email);
         cart.setSelectedTrainNumber(trainNum);
 
         // Navigate to Train Selection

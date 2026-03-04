@@ -7,6 +7,8 @@ module com.example.bhojhon {
     requires java.net.http;
     requires com.google.gson;
     requires org.apache.pdfbox;
+    requires jakarta.mail;
+    requires org.eclipse.angus.mail;
 
     opens com.example.bhojhon to javafx.fxml;
     opens com.example.bhojhon.controller to javafx.fxml, javafx.base;

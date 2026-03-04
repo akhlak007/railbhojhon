@@ -66,12 +66,16 @@ public class CartController extends BaseController {
 
                 // Button Logic
                 minusBtn.setOnAction(event -> {
-                    CartItem item = getTableView().getItems().get(getIndex());
-                    updateQuantity(item, item.getQuantity() - 1);
+                    CartItem item = getTableRow().getItem();
+                    if (item != null) {
+                        updateQuantity(item, item.getQuantity() - 1);
+                    }
                 });
                 plusBtn.setOnAction(event -> {
-                    CartItem item = getTableView().getItems().get(getIndex());
-                    updateQuantity(item, item.getQuantity() + 1);
+                    CartItem item = getTableRow().getItem();
+                    if (item != null) {
+                        updateQuantity(item, item.getQuantity() + 1);
+                    }
                 });
 
                 // Style buttons (Circular)

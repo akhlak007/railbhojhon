@@ -12,7 +12,7 @@
 }
 
 .welcome-container {
-    -fx-background-image: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+    -fx-background-color: linear-gradient(to bottom right, #e0f7fa, #ffffff);
 }
 
 /* Typography */
@@ -223,4 +223,618 @@
 
 .label-active {
     -fx-text-fill: #2d3436;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ADMIN DASHBOARD — SaaS Layout
+   Palette: #1e2235 sidebar | #f6f8fc bg | #4f6ef7 accent-blue
+            #22c55e accent-green | #a855f7 accent-purple
+   ═══════════════════════════════════════════════════════════ */
+
+/* Root wrapper - full window fill */
+.admin-root {
+    -fx-background-color: #f6f8fc;
+}
+
+/* ─────────────────────────── SIDEBAR ─────────────────────────── */
+.sidebar {
+    -fx-background-color: #1e2235;
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+}
+
+.sidebar-brand-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-brand-sub {
+    -fx-text-fill: #8b96b0;
+    -fx-font-size: 11px;
+}
+
+.sidebar-divider {
+    -fx-background-color: #2e3450;
+    -fx-min-height: 1px;
+    -fx-max-height: 1px;
+}
+
+/* Nav items */
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+}
+
+.nav-item:hover {
+    -fx-background-color: #2a3050;
+}
+
+.nav-item-active {
+    -fx-background-color: #4f6ef7;
+    -fx-background-radius: 8px;
+}
+
+.nav-item-active:hover {
+    -fx-background-color: #3d5ce8;
+}
+
+.nav-item-logout:hover {
+    -fx-background-color: rgba(239, 68, 68, 0.18);
+}
+
+.nav-icon {
+    -fx-text-fill: #cbd5e1;
+    -fx-font-size: 15px;
+    -fx-min-width: 22px;
+}
+
+.nav-item-active .nav-icon {
+    -fx-text-fill: #ffffff;
+}
+
+.nav-label {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.nav-item-active .nav-label {
+    -fx-text-fill: #ffffff;
+}
+
+.nav-item-logout .nav-label {
+    -fx-text-fill: #f87171;
+}
+
+/* ─────────────────────────── HEADER ─────────────────────────── */
+.admin-content-area {
+    -fx-background-color: #f6f8fc;
+}
+
+.admin-header {
+    -fx-background-color: #ffffff;
+    -fx-padding: 16 28 16 28;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.06), 8, 0, 0, 2);
+    -fx-min-height: 68px;
+    -fx-max-height: 68px;
+}
+
+.admin-header-title {
+    -fx-text-fill: #1e2235;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.admin-header-sub {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+}
+
+/* Avatar circle */
+.admin-avatar {
+    -fx-background-color: #4f6ef7;
+    -fx-background-radius: 50%;
+    -fx-min-width: 36px;
+    -fx-min-height: 36px;
+    -fx-max-width: 36px;
+    -fx-max-height: 36px;
+}
+
+.admin-avatar-label {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* ─────────────────────────── SCROLL AREA ─────────────────────── */
+.admin-scroll-area {
+    -fx-background-color: #f6f8fc;
+}
+
+/* ─────────────────────────── SECTION HEADING ─────────────────── */
+.section-title-admin {
+    -fx-text-fill: #1e2235;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.section-sub-admin {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+}
+
+/* ─────────────────────────── STAT CARDS ─────────────────────── */
+.stat-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.07), 10, 0, 0, 3);
+}
+
+.stat-card-blue {
+    -fx-border-color: transparent transparent transparent #4f6ef7;
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-radius: 12px;
+}
+
+.stat-card-green {
+    -fx-border-color: transparent transparent transparent #22c55e;
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-radius: 12px;
+}
+
+.stat-card-purple {
+    -fx-border-color: transparent transparent transparent #a855f7;
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-radius: 12px;
+}
+
+.stat-value {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e2235;
+}
+
+.stat-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+}
+
+.stat-sub {
+    -fx-font-size: 11px;
+    -fx-text-fill: #94a3b8;
+}
+
+/* ─────────────────────────── TABLES ─────────────────────────── */
+.admin-table {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.06), 8, 0, 0, 2);
+}
+
+.admin-table .column-header-background {
+    -fx-background-color: #f1f5f9;
+}
+
+.admin-table .column-header {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+    -fx-font-size: 12px;
+    -fx-padding: 12 10 12 10;
+}
+
+.admin-table .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-cell-size: 44px;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+}
+
+.admin-table .table-row-cell:odd {
+    -fx-background-color: #fafbfd;
+}
+
+.admin-table .table-row-cell:hover {
+    -fx-background-color: #eef2ff;
+}
+
+.admin-table .table-row-cell:selected {
+    -fx-background-color: #e0e7ff;
+    -fx-text-fill: #1e2235;
+}
+
+.admin-table .table-cell {
+    -fx-text-fill: #334155;
+    -fx-font-size: 13px;
+    -fx-padding: 0 10 0 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* ─────────────────────────── TAB PANE ───────────────────────── */
+.admin-tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-width: 200px;
+    -fx-tab-max-width: 200px;
+    -fx-tab-min-height: 38px;
+}
+
+.admin-tab-pane .tab-header-area {
+    -fx-padding: 0 0 0 0;
+}
+
+.admin-tab-pane .tab {
+    -fx-background-color: #e8edf5;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-padding: 8 18 8 18;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748b;
+    -fx-cursor: hand;
+}
+
+.admin-tab-pane .tab:selected {
+    -fx-background-color: #4f6ef7;
+}
+
+.admin-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #ffffff;
+}
+
+.admin-tab-pane .tab-content-area {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* ─────────────────────────── BUTTONS ────────────────────────── */
+.btn-refresh {
+    -fx-background-color: #4f6ef7;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-background-radius: 8px;
+    -fx-padding: 9 20 9 20;
+}
+
+.btn-refresh:hover {
+    -fx-background-color: #3d5ce8;
+    -fx-effect: dropshadow(three-pass-box, rgba(79, 110, 247, 0.35), 10, 0, 0, 3);
+}
+
+.btn-refresh-green {
+    -fx-background-color: #22c55e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-background-radius: 8px;
+    -fx-padding: 9 20 9 20;
+}
+
+.btn-refresh-green:hover {
+    -fx-background-color: #16a34a;
+    -fx-effect: dropshadow(three-pass-box, rgba(34, 197, 94, 0.35), 10, 0, 0, 3);
+}
+
+/* ─────────────────────────── RESTAURANT COUNT BADGE ─────────── */
+.restaurant-count-badge {
+    -fx-background-color: #eef2ff;
+    -fx-text-fill: #4f6ef7;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+    -fx-padding: 8 18 8 18;
+    -fx-border-color: #c7d2fe;
+    -fx-border-radius: 20px;
+    -fx-border-width: 1.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESTAURANT DASHBOARD — SaaS Layout
+   Palette: #1a2332 sidebar | #f5f7fa bg | #0ea5a0 accent-teal
+            #f97316 accent-orange | #10b981 accent-green
+   ═══════════════════════════════════════════════════════════ */
+
+/* Root fill */
+.rd-root {
+    -fx-background-color: #f5f7fa;
+}
+
+/* ─────────────────────────── SIDEBAR ─────────────────────── */
+.rd-sidebar {
+    -fx-background-color: #1a2332;
+}
+
+.rd-brand-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.rd-brand-sub {
+    -fx-text-fill: #8898a8;
+    -fx-font-size: 11px;
+}
+
+.rd-divider {
+    -fx-background-color: #283447;
+    -fx-min-height: 1px;
+    -fx-max-height: 1px;
+}
+
+.rd-nav-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+}
+
+.rd-nav-item:hover {
+    -fx-background-color: #243040;
+}
+
+.rd-nav-active {
+    -fx-background-color: #0ea5a0;
+    -fx-background-radius: 8px;
+}
+
+.rd-nav-active:hover {
+    -fx-background-color: #0c8f8b;
+}
+
+.rd-nav-logout:hover {
+    -fx-background-color: rgba(249, 115, 22, 0.18);
+}
+
+.rd-nav-icon {
+    -fx-text-fill: #8898a8;
+    -fx-font-size: 15px;
+    -fx-min-width: 20px;
+}
+
+.rd-nav-active .rd-nav-icon {
+    -fx-text-fill: #ffffff;
+}
+
+.rd-nav-label {
+    -fx-text-fill: #8898a8;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.rd-nav-active .rd-nav-label {
+    -fx-text-fill: #ffffff;
+}
+
+.rd-nav-logout .rd-nav-label {
+    -fx-text-fill: #f97316;
+}
+
+/* ─────────────────────────── HEADER ─────────────────────── */
+.rd-content-area {
+    -fx-background-color: #f5f7fa;
+}
+
+.rd-header {
+    -fx-background-color: #ffffff;
+    -fx-padding: 14 24 14 24;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.06), 8, 0, 0, 2);
+    -fx-min-height: 66px;
+    -fx-max-height: 66px;
+}
+
+.rd-header-title {
+    -fx-text-fill: #1a2332;
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+}
+
+.rd-header-sub {
+    -fx-text-fill: #8898a8;
+    -fx-font-size: 12px;
+}
+
+.rd-restaurant-name {
+    -fx-text-fill: #1a2332;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.rd-station-label {
+    -fx-text-fill: #0ea5a0;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.rd-avatar {
+    -fx-background-color: #0ea5a0;
+    -fx-background-radius: 50%;
+    -fx-min-width: 36px;
+    -fx-min-height: 36px;
+    -fx-max-width: 36px;
+    -fx-max-height: 36px;
+}
+
+.rd-avatar-label {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* ─────────────────────────── SCROLL AREA ─────────────────── */
+.rd-scroll-area {
+    -fx-background-color: #f5f7fa;
+}
+
+/* ─────────────────────────── SECTION HEADING ─────────────── */
+.rd-section-title {
+    -fx-text-fill: #1a2332;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.rd-section-sub {
+    -fx-text-fill: #8898a8;
+    -fx-font-size: 12px;
+}
+
+/* ─────────────────────────── PANEL HEADERS ─────────────────── */
+.rd-panel-title {
+    -fx-text-fill: #1a2332;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+/* ─────────────────────────── MENU TABLE ─────────────────── */
+.rd-table {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.06), 8, 0, 0, 2);
+}
+
+.rd-table .column-header-background {
+    -fx-background-color: #f0f4f8;
+}
+
+.rd-table .column-header {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #516070;
+    -fx-font-size: 12px;
+    -fx-padding: 12 10 12 10;
+}
+
+.rd-table .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-cell-size: 52px;
+    -fx-border-color: transparent transparent #f0f4f8 transparent;
+}
+
+.rd-table .table-row-cell:odd {
+    -fx-background-color: #fafcfd;
+}
+
+.rd-table .table-row-cell:hover {
+    -fx-background-color: #e6f7f7;
+}
+
+.rd-table .table-row-cell:selected {
+    -fx-background-color: #cdf0ee;
+    -fx-text-fill: #1a2332;
+}
+
+.rd-table .table-cell {
+    -fx-text-fill: #344455;
+    -fx-font-size: 13px;
+    -fx-padding: 0 10 0 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* ─────────────────────────── ADD ITEM FORM CARD ─────────── */
+.rd-form-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.07), 10, 0, 0, 3);
+}
+
+/* ─────────────────────────── FORM INPUTS ─────────────────── */
+.rd-form-label {
+    -fx-text-fill: #516070;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.rd-text-field {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #d6e0ec;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 9 12 9 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1a2332;
+}
+
+.rd-text-field:focused {
+    -fx-border-color: #0ea5a0;
+    -fx-border-width: 2px;
+    -fx-background-color: #ffffff;
+}
+
+.rd-text-area {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #d6e0ec;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 9 12 9 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1a2332;
+}
+
+.rd-text-area:focused {
+    -fx-border-color: #0ea5a0;
+    -fx-border-width: 2px;
+    -fx-background-color: #ffffff;
+}
+
+.rd-combo-box {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #d6e0ec;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 4 10 4 10;
+    -fx-font-size: 13px;
+}
+
+.rd-combo-box:focused {
+    -fx-border-color: #0ea5a0;
+    -fx-border-width: 2px;
+}
+
+/* ─────────────────────────── FORM MISC ─────────────────────── */
+.rd-file-label {
+    -fx-text-fill: #8898a8;
+    -fx-font-size: 12px;
+}
+
+.rd-error-label {
+    -fx-text-fill: #e53e3e;
+    -fx-font-size: 12px;
+}
+
+/* ─────────────────────────── BUTTONS ─────────────────────── */
+.rd-btn-primary {
+    -fx-background-color: #0ea5a0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-background-radius: 10px;
+    -fx-padding: 10 20 10 20;
+}
+
+.rd-btn-primary:hover {
+    -fx-background-color: #0c8f8b;
+    -fx-effect: dropshadow(three-pass-box, rgba(14, 165, 160, 0.4), 10, 0, 0, 3);
+}
+
+.rd-btn-secondary {
+    -fx-background-color: #f0f4f8;
+    -fx-text-fill: #516070;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-background-radius: 8px;
+    -fx-border-color: #d6e0ec;
+    -fx-border-radius: 8px;
+    -fx-padding: 8 16 8 16;
+}
+
+.rd-btn-secondary:hover {
+    -fx-background-color: #e2eaf2;
+    -fx-border-color: #b8c9d9;
 }

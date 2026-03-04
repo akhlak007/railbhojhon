@@ -225,6 +225,38 @@ public class DatabaseHelper {
     // ========== RESTAURANT OWNER METHODS ==========
 
     /**
+     * Get all registered restaurant owners (for Admin Dashboard)
+     */
+    public java.util.List<com.example.bhojhon.model.RestaurantOwner> getAllRestaurantOwners() {
+        java.util.List<com.example.bhojhon.model.RestaurantOwner> list = new java.util.ArrayList<>();
+        String query = "SELECT ro.id, ro.restaurant_name, ro.email, ro.password, " +
+                "ro.station_id, s.name as station_name, ro.created_at " +
+                "FROM restaurant_owners ro " +
+                "JOIN stations s ON ro.station_id = s.id " +
+                "ORDER BY ro.created_at DESC";
+
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+                Statement stmt = conn.createStatement();
+                java.sql.ResultSet rs = stmt.executeQuery(query)) {
+
+            while (rs.next()) {
+                list.add(new com.example.bhojhon.model.RestaurantOwner(
+                        rs.getInt("id"),
+                        rs.getString("restaurant_name"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getInt("station_id"),
+                        rs.getString("station_name"),
+                        rs.getString("created_at")));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching all restaurant owners: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    /**
      * Get all stations
      */
     public java.util.List<com.example.bhojhon.model.Station> getStations() {
@@ -339,6 +371,54 @@ public class DatabaseHelper {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * Count total registered restaurants (for Admin stat cards)
+     */
+    public int getRestaurantCount() {
+        String query = "SELECT COUNT(*) FROM restaurant_owners";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+                Statement stmt = conn.createStatement();
+                java.sql.ResultSet rs = stmt.executeQuery(query)) {
+            if (rs.next())
+                return rs.getInt(1);
+        } catch (SQLException e) {
+            System.err.println("Error counting restaurants: " + e.getMessage());
+        }
+        return 0;
+    }
+
+    /**
+     * Count total orders (for Admin stat cards)
+     */
+    public int getOrderCount() {
+        String query = "SELECT COUNT(*) FROM orders";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+                Statement stmt = conn.createStatement();
+                java.sql.ResultSet rs = stmt.executeQuery(query)) {
+            if (rs.next())
+                return rs.getInt(1);
+        } catch (SQLException e) {
+            System.err.println("Error counting orders: " + e.getMessage());
+        }
+        return 0;
+    }
+
+    /**
+     * Count total stations (for Admin stat cards)
+     */
+    public int getStationCount() {
+        String query = "SELECT COUNT(*) FROM stations";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+                Statement stmt = conn.createStatement();
+                java.sql.ResultSet rs = stmt.executeQuery(query)) {
+            if (rs.next())
+                return rs.getInt(1);
+        } catch (SQLException e) {
+            System.err.println("Error counting stations: " + e.getMessage());
+        }
+        return 0;
     }
 
     // ========== FOOD ITEM METHODS ==========

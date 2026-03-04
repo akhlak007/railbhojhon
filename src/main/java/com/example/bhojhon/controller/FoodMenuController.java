@@ -138,8 +138,10 @@ public class FoodMenuController extends BaseController {
                         addBtn.setStyle("-fx-background-color: linear-gradient(to right, #1A73E8, #4285F4); " +
                                 "-fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-min-width: 80px;");
                         addBtn.setOnAction(event -> {
-                            FoodItem foodItem = getTableView().getItems().get(getIndex());
-                            addToCart(foodItem);
+                            FoodItem foodItem = getTableRow().getItem();
+                            if (foodItem != null) {
+                                addToCart(foodItem);
+                            }
                         });
 
                         // Qty Pane Style
@@ -150,22 +152,26 @@ public class FoodMenuController extends BaseController {
                         qtyLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
 
                         minusBtn.setOnAction(event -> {
-                            FoodItem item = getTableView().getItems().get(getIndex());
-                            updateQuantityInCart(item, -1);
+                            FoodItem item = getTableRow().getItem();
+                            if (item != null) {
+                                updateQuantityInCart(item, -1);
+                            }
                         });
                         plusBtn.setOnAction(event -> {
-                            FoodItem item = getTableView().getItems().get(getIndex());
-                            updateQuantityInCart(item, 1);
+                            FoodItem item = getTableRow().getItem();
+                            if (item != null) {
+                                updateQuantityInCart(item, 1);
+                            }
                         });
                     }
 
                     @Override
                     public void updateItem(Void item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (empty) {
+                        FoodItem foodItem = getTableRow() == null ? null : (FoodItem) getTableRow().getItem();
+                        if (empty || foodItem == null) {
                             setGraphic(null);
                         } else {
-                            FoodItem foodItem = getTableView().getItems().get(getIndex());
                             int quantity = CartManager.getInstance().getQuantity(foodItem);
 
                             if (quantity > 0) {

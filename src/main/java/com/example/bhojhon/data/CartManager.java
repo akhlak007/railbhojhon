@@ -26,6 +26,7 @@ public class CartManager {
     private String deliveryNote;
     private String pnr;
     private String journeyDate;
+    private String userEmail;
 
     /**
      * Private constructor for Singleton pattern
@@ -101,16 +102,22 @@ public class CartManager {
         deliveryNote = null;
         pnr = null;
         journeyDate = null;
+        userEmail = null;
     }
 
     public void setPassengerDetails(String name, String phone, String seat, String note, String pnr,
-            String journeyDate) {
+            String journeyDate, String email) {
         this.passengerName = name;
         this.phoneNumber = phone;
         this.seatNumber = seat;
         this.deliveryNote = note;
         this.pnr = pnr;
         this.journeyDate = journeyDate;
+        this.userEmail = email;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
     }
 
     public String getPassengerName() {
